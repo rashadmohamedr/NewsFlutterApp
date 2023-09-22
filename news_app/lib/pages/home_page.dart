@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/pages/article_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -104,10 +105,10 @@ class _HomePageState extends State<HomePage> {
                     child: PageView(
                       scrollDirection: Axis.horizontal,
                       children: [
-                        NewsCard(),
-                        NewsCard(),
-                        NewsCard(),
-                        NewsCard(),
+                        NewsCard(showSubTitle: true,),
+                        NewsCard(showSubTitle: true,),
+                        NewsCard(showSubTitle: true,),
+                        NewsCard(showSubTitle: true,),
                       ],
                     ),
                   ),
@@ -157,109 +158,181 @@ class _HomePageState extends State<HomePage> {
               });
             },
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  image: DecorationImage(
-                      image: AssetImage("assets/images/sample.jpg"),
-                      fit: BoxFit.cover),
-                ),
-                margin: EdgeInsets.symmetric(horizontal: 4),
-                padding: EdgeInsets.all(20),
-                height: MediaQuery.of(context).size.height / 4,
-                width: MediaQuery.of(context).size.width / 1.5,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ArticlePage()),
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    image: DecorationImage(
+                        image: AssetImage("assets/images/sample.jpg"),
+                        fit: BoxFit.cover),
+                  ),
+                  margin: EdgeInsets.symmetric(horizontal: 4),
+                  padding: EdgeInsets.all(20),
+                  height: MediaQuery.of(context).size.height / 4,
+                  width: MediaQuery.of(context).size.width / 1.5,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
+                        onPressed: () {},
+                        child: Text(
+                          "sports",
+                          style: TextStyle(
+                            backgroundColor: Colors.blue,
+                          ),
                         ),
                       ),
-                      onPressed: () {},
-                      child: Text(
-                        "sports",
-                        style: TextStyle(
-                          backgroundColor: Colors.blue,
+                      Spacer(),
+                      Row(
+                        children: [
+                          Text(
+                            "CNN",
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Icon(
+                            Icons.verified_rounded,
+                            color: Colors.blue,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            ".",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 30,
+                              fontFeatures: [FontFeature.enable("subs")],
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            "6 hours ago",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                      Wrap(
+                        textDirection: TextDirection.ltr,
+                        children: [
+                          Text(
+                            "What is AlAhly Doing Now, after all these winnings?",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ArticlePage()),
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    image: DecorationImage(
+                        image: AssetImage("assets/images/sample.jpg"),
+                        fit: BoxFit.cover),
+                  ),
+                  margin: EdgeInsets.symmetric(horizontal: 4),
+                  padding: EdgeInsets.all(20),
+                  height: MediaQuery.of(context).size.height / 4,
+                  width: MediaQuery.of(context).size.width / 1.5,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
+                        onPressed: () {},
+                        child: Text(
+                          "sports",
+                          style: TextStyle(
+                            backgroundColor: Colors.blue,
+                          ),
                         ),
                       ),
-                    ),
-                    Spacer(),
-                    Row(
-                      children: [
-                        Text(
-                          "CNN",
-                          style: TextStyle(
-                            color: Colors.white,
+                      Spacer(),
+                      Row(
+                        children: [
+                          Text(
+                            "CNN",
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Icon(Icons.verified_rounded,color: Colors.blue,),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          ".",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 30,
-                            fontFeatures: [FontFeature.enable("subs")],
+                          SizedBox(
+                            width: 5,
                           ),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          "6 hours ago",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
-                    ),
-                    Wrap(
-                      textDirection: TextDirection.ltr,
-                      children: [
-                        Text(
-                          "What is AlAhly Doing Now, after all these winnings?",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                          Icon(
+                            Icons.verified_rounded,
+                            color: Colors.blue,
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            ".",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 30,
+                              fontFeatures: [FontFeature.enable("subs")],
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            "6 hours ago",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                      Wrap(
+                        textDirection: TextDirection.ltr,
+                        children: [
+                          Text(
+                            "What is AlAhly Doing Now, after all these winnings?",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  color: Color.fromRGBO(88, 147, 190, 1),
-                ),
-                margin: EdgeInsets.symmetric(horizontal: 4),
-                height: 200,
-                width: MediaQuery.of(context).size.width / 1.5,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  color: Color.fromRGBO(88, 147, 190, 1),
-                ),
-                margin: EdgeInsets.symmetric(horizontal: 4),
-                height: 200,
-                width: MediaQuery.of(context).size.width / 1.5,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  color: Color.fromRGBO(88, 147, 190, 1),
-                ),
-                margin: EdgeInsets.symmetric(horizontal: 4),
-                height: 200,
-                width: MediaQuery.of(context).size.width / 1.5,
               ),
             ],
           ),
@@ -287,19 +360,23 @@ class _HomePageState extends State<HomePage> {
 
 class NewsCard extends StatelessWidget {
   final String title;
+  final String subTitle;
+  final bool showSubTitle;
   final String author;
   final String authorImagePath;
-  final String mainImagePath;
+  final String BackImagePath;
   final String date;
   final bool showCategory;
   final String category;
   const NewsCard(
       {super.key,
       this.title = "What is AlAhly Doing Now, after all these winnings?",
+      this.subTitle = "",
+      this.showSubTitle=false,
       this.author = "Author",
       this.authorImagePath = "assets/images/sample.jpg",
       this.date = "Feb 27,2024",
-      this.mainImagePath = "assets/images/sample.jpg",
+      this.BackImagePath = "assets/images/sample.jpg",
       this.showCategory = false,
       this.category = "Sports"});
 
@@ -319,7 +396,7 @@ class NewsCard extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(mainImagePath),
+                  image: AssetImage(BackImagePath),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(20),
